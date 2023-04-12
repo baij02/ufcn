@@ -41,11 +41,11 @@ def get_transforms():
 def main(args):
 
 
-    images = sorted(glob(os.path.join('/ocean/projects/cis220023p/jub19012/Unet/data/train/img/', "*.png")))
-    segs = sorted(glob(os.path.join("/ocean/projects/cis220023p/jub19012/Unet/data/train/seg/", "*.png")))
+    images = sorted(glob(os.path.join('/data/train/img/', "*.png")))
+    segs = sorted(glob(os.path.join("/data/train/seg/", "*.png")))
 
-    vaimages = sorted(glob(os.path.join('/ocean/projects/cis220023p/jub19012/Unet/data/test/img/', "*.png")))
-    vasegs = sorted(glob(os.path.join("/ocean/projects/cis220023p/jub19012/Unet/data/test/seg/", "*.png")))
+    vaimages = sorted(glob(os.path.join('/data/test/img/', "*.png")))
+    vasegs = sorted(glob(os.path.join("/data/test/seg/", "*.png")))
 
     train_files = [{"img": img, "seg": seg} for img, seg in zip(images, segs)]
     val_files = [{"img": img, "seg": seg} for img, seg in zip(vaimages, vasegs)]
@@ -139,7 +139,7 @@ def main(args):
                     #     result = cpu_pred.data.numpy()
                     #     np.save(result, )
                     
-                    value = dice_metric(y_pred=val_outputs, y=val_labels)
+                    value = dice_metric(y_pred=process(val_outputs), y=process(val_labels))
                     metric_count += len(value)
                     metric_sum += value.item() * len(value)
 
