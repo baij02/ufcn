@@ -42,8 +42,8 @@ def get_transforms():
 def main(args):
 
 
-    images = sorted(glob(os.path.join('/ocean/projects/cis220023p/jub19012/Unet/data/train/img/', "*.png")))
-    segs = sorted(glob(os.path.join("/ocean/projects/cis220023p/jub19012/Unet/data/train/seg/", "*.png")))
+    images = sorted(glob(os.path.join('data/train/img/', "*.png")))
+    segs = sorted(glob(os.path.join("data/train/seg/", "*.png")))
 
     vaimages = sorted(glob(os.path.join('/ocean/projects/cis220023p/jub19012/Unet/data/test/img/', "*.png")))
     vasegs = sorted(glob(os.path.join("/ocean/projects/cis220023p/jub19012/Unet/data/test/seg/", "*.png")))
