@@ -15,6 +15,7 @@ from monai.metrics import DiceMetric
 from monai import transforms as mt
 from monai.visualize import plot_2d_or_3d_image
 import random
+import process
 
 pjoin = os.path.join
 
@@ -151,7 +152,7 @@ def main(args):
                     #     result = cpu_pred.data.numpy()
                     #     np.save(result, )
                     
-                    value = dice_metric(y_pred=val_outputs, y=val_labels)
+                    value = dice_metric(y_pred=process(val_outputs), y=process(val_labels))
                     metric_count += len(value)
                     metric_sum += value.item() * len(value)
 
