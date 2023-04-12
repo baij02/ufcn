@@ -45,8 +45,8 @@ def main(args):
     images = sorted(glob(os.path.join('data/train/img/', "*.png")))
     segs = sorted(glob(os.path.join("data/train/seg/", "*.png")))
 
-    vaimages = sorted(glob(os.path.join('/ocean/projects/cis220023p/jub19012/Unet/data/test/img/', "*.png")))
-    vasegs = sorted(glob(os.path.join("/ocean/projects/cis220023p/jub19012/Unet/data/test/seg/", "*.png")))
+    vaimages = sorted(glob(os.path.join('/data/test/img/', "*.png")))
+    vasegs = sorted(glob(os.path.join("/data/test/seg/", "*.png")))
 
     train_files = [{"img": img, "seg": seg} for img, seg in zip(images, segs)]
     val_files = [{"img": img, "seg": seg} for img, seg in zip(vaimages, vasegs)]
